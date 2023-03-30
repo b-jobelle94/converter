@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="converter.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="converter.css">
 </head>
 <body>
-	<h1 style="text-align: center">Conversion Calculator</h1>
+  <h1 style="text-align: center">Conversion Calculator</h1>
 <div class="container-lg">
-	<div class="row">
+  <div class="row">
 <div class="col-sm-5">
-	<h2>Weight Converter</h2>
+  <h2>Weight Converter</h2>
 
-	<p>
+  <p>
   <label>Pounds</label>
   <input id="inputPounds" type="number" placeholder="Pounds" oninput="weightConverter(this.value)" onchange="weightConverter(this.value)">
 </p>
-<p>Kilograms: <span id="outputKilograms"></span></p>
-<p>Ounces: <span id="outputOunces"></span></p>
-<p>Grams: <span id="outputGrams"></span></p>
+<p id="outputGrams" style="display:none">Grams</p>
+<p id="outputOunces" style="display:none">Ounces</p>
+<p id="outputKilograms" style="display:none">Kilograms</p>
+<button type="button" onclick="document.getElementById('outputGrams').style.display='block'">Grams</button>
+<button type="button" onclick="document.getElementById('outputOunces').style.display='block'">Ounces</button>
+<button type="button" onclick="document.getElementById('outputKilograms').style.display='block'">Kilograms</button>
 </div>
 <div class="col-sm-1">
-	</div>
+  </div>
 <div class="col-sm-5">
-<h2>Length Converter</h2>
-
-<p>
+  <p>
   <label>Feet</label>
-  <input id="inputFeet" type="number" placeholder="Feet" oninput="LengthConverter(this.value)" onchange="LengthConverter(this.value)">
+  <input id="inputFeet" type="number" placeholder="Feet" oninput="lengthConverter(this.value)" onchange="lengthConverter(this.value)">
 </p>
-<p>Meters: <span id="outputMeters"></span></p>
-<p>Inches: <span id="outputInches"></span></p>
-<p>Yards: <span id="outputYards"></span></p>
+<p id="outputMeters" style="display:none">Meters</p>
+<p id="outputInches" style="display:none">Inches</p>
+<p id="outputYards" style="display:none">Yards</p>
+<button type="button" onclick="document.getElementById('outputMeters').style.display='block'">Meters</button>
+<button type="button" onclick="document.getElementById('outputInches').style.display='block'">Inches</button>
+<button type="button" onclick="document.getElementById('outputYards').style.display='block'">Yards</button>
 </div>
 </div>
 <div class="row">
 <div class="col-sm-5">
-	<h2>Time Converter</h2>
+  <h2>Time Converter</h2>
 
 <p>
   <label>Minutes</label>
-  <input id="inputminutes" type="number" placeholder="Minutes" oninput="timeConverter(this.value)" onchange="timeConverter(this.value)">
+  <input id="inputMinutes" type="number" placeholder="Minutes" oninput="timeConverter(this.value)" onchange="timeConverter(this.value)">
 </p>
-<p>Hours: <span id="outputHours"></span></p>
-<p>Seconds: <span id="outputSeconds"></span></p>
-<p>Days: <span id="outputDays"></span></p>
+<p id="outputHours" style="display:none"></p>
+<p id="outputSeconds" style="display:none">Seconds</p>
+<p id="outputDays" style="display:none">Days</p>
+<button type="button" onclick="document.getElementById('outputHours').style.display='block'">Hours</button>
+<button type="button" onclick="document.getElementById('outputSeconds').style.display='block'">Seconds</button>
+<button type="button" onclick="document.getElementById('outputDays').style.display='block'">Days</button>
 </div>
 <div class="col-sm-1">
-	</div>
+  </div>
 <div class="col-sm-5">
-	<h2>Temperature Converter</h2>
+  <h2>Temperature Converter</h2>
 
 <p>
   <label>Celsius</label>
   <input id="inputCelsius" type="number" placeholder="Celsius" oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
 </p>
-<p>Fahrenheit: <span id="outputFahrenheit"></span></p>
-<p>Kelvin: <span id="outputKelvin"></span></p>
+<p id="outputKelvin" style="display:none">Kelvin</p>
+<p id="outputFahrenheit" style="display:none">Fahrenheit</p>
+<button type="button" onclick="document.getElementById('outputKelvin').style.display='block'">Kelvin</button>
+<button type="button" onclick="document.getElementById('outputFahrenheit').style.display='block'">Fahrenheit</button>
+
 </div>
 
 
@@ -65,14 +75,14 @@
 
 <script>
 function LengthConverter(valNum) {
-	  valNum = parseFloat(valNum);
+    valNum = parseFloat(valNum);
 
   document.getElementById("outputMeters").innerHTML=valNum/3.2808;
   document.getElementById("outputInches").innerHTML=valNum*12;
   document.getElementById("outputYards").innerHTML=valNum*0.33333;
 }
 function weightConverter(valNum) {
-	  valNum = parseFloat(valNum);
+    valNum = parseFloat(valNum);
 
   document.getElementById("outputGrams").innerHTML=valNum/0.0022046;
     document.getElementById("outputKilograms").innerHTML=valNum/2.2046;
